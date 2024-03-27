@@ -1,0 +1,15 @@
+@import "abstracts/var";
+
+body {
+  font-family: var(--main-font);
+  //background-color: var(--bg-primary);
+
+}
+
+.layout {
+  padding: 0 10px;
+
+  @include breakpoint(desktop) {
+    padding: 0 33px;
+  }
+}
