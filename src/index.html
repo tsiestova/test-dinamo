@@ -24,9 +24,9 @@
                 <nav class="nav-menu">
                     <ul class="header__nav-list nav-list">
                         <li class="nav-item"><a href="#">главная</a></li>
-                        <li class="nav-item"><a href="#">меню</a></li>
-                        <li class="nav-item"><a href="#">контакты</a></li>
-                        <li class="nav-item"><a href="#">галлерея</a></li>
+                        <li class="nav-item"><a href="#menu">меню</a></li>
+                        <li class="nav-item"><a href="#contacts">контакты</a></li>
+                        <li class="nav-item"><a href="#gallery">галлерея</a></li>
                     </ul>
                 </nav>
                 <ul class="contacts__list">
@@ -55,7 +55,7 @@
           </section>
   </div>
           <div class="main-container__wrap">
-              <section class="section__menu">
+              <section class="section__menu" id="menu">
                   <div class="layout">
                       <div class="section__menu__inner">
                           <div class="section__menu__heading">
@@ -138,7 +138,7 @@
                          </div>
                       </div>
               </section>
-              <section class="section__gallery">
+              <section class="section__gallery" id="gallery">
                   <div class="layout">
                       <div class="section__gallery__inner">
                           <div class="section__gallery__heading">
@@ -197,7 +197,7 @@
               </section>
           </div>
 
-      <footer class="footer">
+      <footer class="footer" id="contacts">
           <div class="layout">
               <div class="footer__inner">
                   <a href="#" class="footer__logo logo">
@@ -239,7 +239,7 @@
        <div class="layout">
         <nav class="modal__nav-menu">
                 <ul class="header__nav-list nav-list">
-                    <li class="modal__nav-item nav-item"><a href="#">главная</a></li>
+                    <li class="modal__nav-item nav-item"><a href="/">главная</a></li>
                     <li class="modal__nav-item nav-item"><a href="#">меню</a></li>
                     <li class="modal__nav-item nav-item"><a href="#">контакты</a></li>
                     <li class="modal__nav-item nav-item"><a href="#">галлерея</a></li>
@@ -249,7 +249,12 @@
      </div>
   </dialog>
 
-  <dialog data-modal id="modal-menu">
+  <dialog data-modal id="modal-menu" class="modal__menu__list">
+      <div class="layout">
+          <button type="button" class="btn-close-menu" id="close-menu">
+              Назад
+          </button>
+      </div>
       <div class="modal-content">
       </div>
   </dialog>

@@ -1,3 +1,32 @@
+.modal__menu__list {
+  padding: 20px 0;
+  .btn-close-menu {
+    cursor: pointer;
+    position: relative;
+    background: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 20px;
+
+    &:before {
+      content: '';
+      background: url("./assets/Vector.svg") no-repeat center;
+      width: 20px;
+      height: 20px;
+      display: block;
+      transform: rotate(90deg);
+    }
+  }
+
+  &::backdrop {
+    opacity: 0.5;
+    background: #fff;
+    transition: opacity 150ms;
+  }
+}
+
 .modal-menu__content {
   .layout {
     padding: 0 20px;
@@ -85,12 +114,17 @@
   }
 
   .modal__main__container {
-    margin: 30px 0 30px;
+    margin: 30px auto 30px auto;
+    max-width: 1245px;
   }
 
   .menu__list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    @include breakpoint(desktop) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
   }
+
+
 }

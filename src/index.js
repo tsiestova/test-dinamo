@@ -1,5 +1,11 @@
 import "./style.scss";
 
+function fetchData(path) {
+
+    return fetch(path)
+        .then((response) => response.text())
+}
+
 const initModal = () => {
     const burger = document.getElementById('burger');
     const modal = document.querySelector('#modal');
@@ -23,13 +29,21 @@ const initModalRecipes = () => {
     btnOpenMenu.forEach((btn) => {
         btn.addEventListener('click', ()=> {
 
-            fetch('./assets/modal.html')
-                .then(response => response.text())
+            fetchData('./assets/modal.html')
                 .then(data => modalContent.innerHTML = data);
-
                 modalMenu.showModal();
+
+                addModalEvents(modalMenu);
         })
     })
+}
+
+function addModalEvents (modal)  {
+
+    const closeMenu = document.querySelector('#close-menu');
+    closeMenu.addEventListener('pointerdown', () => {
+        modal.close();
+    });
 }
 
 const initGallerySlider = () => {
@@ -113,5 +127,21 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     initModal();
     initModalRecipes();
+
+
+    /*if(myHash[1] != undefined){ //проверяем, есть ли в хеше какое-то значение
+        $('html, body').animate({scrollTop: $(myHash).offset().top}, 500); //скроллим за полсекунды
+    };*/
+
+    const links = document.querySelectorAll('a');
+links.forEach((link) => {
+    link.addEventListener('click', () => {
+        const myHash = document.location.hash;
+        if(myHash) {
+            const top = myHash.offsetTop;
+            window.scrollTo({top: top, behavior: 'smooth'});
+        }
+    })
+})
 
 });
