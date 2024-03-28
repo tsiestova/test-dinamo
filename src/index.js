@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             instanceMenuSlider = initMenuSlider();
         } else {
             console.log(match.matches);
-           instanceMenuSlider.destroy();
+            instanceMenuSlider.destroy();
         }
     })
 
@@ -154,13 +154,23 @@ document.addEventListener("DOMContentLoaded", (event) => {
     initModalRecipes();
 
 
-    const links = document.querySelectorAll('a');
+    const links = document.querySelectorAll('.nav-item a');
+
     links.forEach((link) => {
-        link.addEventListener('click', () => {
-            const myHash = document.location.hash;
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            const modal = document.querySelector('#modal');
+            if (modal.open) {
+                modal.close();
+            }
+
+            const myHash = document.querySelector(link.getAttribute('href'));
             if (myHash) {
-                const top = myHash.offsetTop;
-                window.scrollTo({top: top, behavior: 'smooth'});
+
+                myHash.scrollIntoView({
+                    behavior: 'smooth',
+                })
             }
         })
     })
