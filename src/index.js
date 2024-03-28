@@ -27,18 +27,18 @@ const initModalRecipes = () => {
     const modalContent = modalMenu.querySelector('.modal-content');
 
     btnOpenMenu.forEach((btn) => {
-        btn.addEventListener('click', ()=> {
+        btn.addEventListener('click', () => {
 
             fetchData('./assets/modal.html')
                 .then(data => modalContent.innerHTML = data);
-                modalMenu.showModal();
+            modalMenu.showModal();
 
-                addModalEvents(modalMenu);
+            addModalEvents(modalMenu);
         })
     })
 }
 
-function addModalEvents (modal)  {
+function addModalEvents(modal) {
 
     const closeMenu = document.querySelector('#close-menu');
     closeMenu.addEventListener('pointerdown', () => {
@@ -48,7 +48,7 @@ function addModalEvents (modal)  {
 
 const initGallerySlider = () => {
 
-    const swiperGallery = new Swiper('.swiper-gallery', {
+    return new Swiper('.swiper-gallery', {
         pagination: {
             el: ".swiper-pagination",
             clickable: true,
@@ -80,12 +80,11 @@ const initGallerySlider = () => {
         },
     });
 
-    return swiperGallery;
 }
 
 const initMenuSlider = () => {
 
-    const swiperMenu = new Swiper('.swiper-menu', {
+    return new Swiper('.swiper-menu', {
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
@@ -109,39 +108,61 @@ const initMenuSlider = () => {
               },*/
         loop: true,
     });
-
-    return swiperMenu;
 }
 
 document.addEventListener("DOMContentLoaded", (event) => {
-    let mobile = window.matchMedia("(min-width: 0px) and (max-width: 768px)");
+    let mobile = window.matchMedia("(max-width: 767px)");
     let desktop = window.matchMedia("(min-width: 1024px)");
 
+    let instanceSwiperGallery;
+    let instanceMenuSlider;
+
+    mobile.addListener((match) => {
+        if (match.matches) {
+            instanceSwiperGallery = initGallerySlider();
+        } else {
+            instanceSwiperGallery.destroy();
+        }
+
+    });
+
+
+    desktop.addListener((match) => {
+        if (match.matches) {
+            console.log(match.matches);
+
+            instanceMenuSlider = initMenuSlider();
+        } else {
+            console.log(match.matches);
+           instanceMenuSlider.destroy();
+        }
+    })
+
     if (mobile.matches) {
-       initGallerySlider();
+        if (!instanceSwiperGallery) {
+            instanceSwiperGallery = initGallerySlider();
+        }
     }
 
     if (desktop.matches) {
-        initMenuSlider();
+        if (!instanceMenuSlider) {
+            instanceMenuSlider = initMenuSlider();
+        }
     }
 
     initModal();
     initModalRecipes();
 
 
-    /*if(myHash[1] != undefined){ //проверяем, есть ли в хеше какое-то значение
-        $('html, body').animate({scrollTop: $(myHash).offset().top}, 500); //скроллим за полсекунды
-    };*/
-
     const links = document.querySelectorAll('a');
-links.forEach((link) => {
-    link.addEventListener('click', () => {
-        const myHash = document.location.hash;
-        if(myHash) {
-            const top = myHash.offsetTop;
-            window.scrollTo({top: top, behavior: 'smooth'});
-        }
+    links.forEach((link) => {
+        link.addEventListener('click', () => {
+            const myHash = document.location.hash;
+            if (myHash) {
+                const top = myHash.offsetTop;
+                window.scrollTo({top: top, behavior: 'smooth'});
+            }
+        })
     })
-})
 
 });
