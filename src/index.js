@@ -217,11 +217,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
             }
 
             const myHash = document.querySelector(link.getAttribute('href'));
-            if (myHash) {
 
+            if (myHash) {
                 myHash.scrollIntoView({
                     behavior: 'smooth',
                 })
+
+                setTimeout(() => {
+                    location.hash = (link.getAttribute('href').replace('#', ''));
+                }, 500)
             }
         })
     })
