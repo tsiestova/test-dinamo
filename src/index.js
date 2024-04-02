@@ -31,38 +31,78 @@ const initModalRecipes = () => {
 
             fetchData('./assets/modal.html')
                 .then(data => modalContent.innerHTML = data);
-            modalMenu.showModal();
-            modalAnimate(modalMenu);
+
+            displayModalMenu(modalMenu);
             addModalEvents(modalMenu);
         })
     })
 }
 
-function modalAnimate (modal) {
-    modal.animate([
-        {
-            transform: "translateX(-100%)"
-        },
+function displayModalMenu (modal) {
+    modal.showModal();
+
+    modal.animate(getAnimationAttr(), {
+        duration: 250
+    });
+}
+
+function getAnimationAttr () {
+    const desktop = window.matchMedia("(min-width: 1024px)");
+
+        if(desktop.matches) {
+            return [
+                {
+                    opacity: 0
+                },
+                {
+                    opacity: 1
+                }
+            ]
+
+        }
+
+        return  [
+            {
+                transform: "translateX(-100%)"
+            },
+            {
+                transform: "translateX(0)"
+            }
+        ]
+}
+
+function getAnimationCloseAttr () {
+    const desktop = window.matchMedia("(min-width: 1024px)");
+
+    if(desktop.matches) {
+        return [
+            {
+                opacity: 1
+            },
+            {
+                opacity: 0
+            }
+        ]
+
+    }
+
+    return  [
         {
             transform: "translateX(0)"
+        },
+        {
+            transform: "translateX(-100%)"
         }
-    ], {
-        duration: 250
-    })
+    ]
 }
 
 function addModalEvents(modal) {
-
     const closeMenu = document.querySelector('#close-menu');
     closeMenu.addEventListener('pointerdown', () => {
-       const animateMenu =  modal.animate([
+
+       const animateMenu =  modal.animate(
+           getAnimationCloseAttr(),
            {
-               transform: "translateX(0)"
-           },
-           {
-               transform: "translateX(-100%)"
-           }
-       ], {
            duration: 250
        })
 
@@ -121,16 +161,6 @@ const initMenuSlider = () => {
         slidesPerGroup: 1,
         slidesPerView: 6,
         spaceBetween: 0,
-        //centeredSlides: true,
-        /*      effect: "creative",
-              creativeEffect: {
-                  prev: {
-                      translate: ["-50%", 0, -1],
-                  },
-                  next: {
-                      translate: ["100%", 0, 0],
-                  },
-              },*/
         loop: true,
     });
 }
@@ -154,11 +184,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     desktop.addListener((match) => {
         if (match.matches) {
-            console.log(match.matches);
-
             instanceMenuSlider = initMenuSlider();
         } else {
-            console.log(match.matches);
             instanceMenuSlider.destroy();
         }
     })
@@ -177,7 +204,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     initModal();
     initModalRecipes();
-
 
     const links = document.querySelectorAll('.nav-item a');
 
