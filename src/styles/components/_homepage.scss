@@ -1,8 +1,6 @@
 
-
 .page__wrap {
   position: relative;
-
 
   &:before {
     content: '';
@@ -40,8 +38,6 @@
       background: none;
     }
   }
-
-
 }
 
 .header {
@@ -128,7 +124,7 @@ main {
 
   @include breakpoint(desktop) {
     display: inline-block;
-    //text-align: left;
+    text-align: left;
     margin-bottom: 35px;
   }
 
@@ -222,17 +218,17 @@ main {
 
   .contacts {
 
-      a {
-        width: 15px;
-        height: 15px;
-        display: block;
+    a {
+      width: 15px;
+      height: 15px;
+      display: block;
 
-        @include breakpoint(desktop) {
-          width: 20px;
-          height: 20px;
-        }
-
+      @include breakpoint(desktop) {
+        width: 20px;
+        height: 20px;
       }
+
+    }
 
     &.phone {
       a {
@@ -266,14 +262,14 @@ main {
 
     &.instagram {
       a {
-         background: url("./assets/insta.png") no-repeat center;
+        background: url("./assets/insta.png") no-repeat center;
         background-size: contain;
       }
     }
 
     &.facebook {
       a {
-         background: url("./assets/facebook.png") no-repeat center;
+        background: url("./assets/facebook.png") no-repeat center;
         background-size: contain;
       }
     }
@@ -288,6 +284,7 @@ main {
 
 .main-container__wrap {
   position: relative;
+
   &:before {
     content: '';
     position: absolute;
@@ -339,7 +336,6 @@ main {
     @include breakpoint(desktop) {
       font-size: 48px;
       line-height: 70px;
-      //margin-bottom: 25px;
     }
   }
 
@@ -355,13 +351,6 @@ main {
 
 
 .section__menu__item {
-/*  position: relative;
-  min-height: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;*/
 
   &:after {
     content: '';
@@ -385,22 +374,21 @@ main {
   &:hover {
     .menu__item__button {
       @include breakpoint(desktop) {
-         visibility: visible;
+        visibility: visible;
         z-index: 1;
         position: relative;
       }
     }
 
-      &:after {
-        background: rgba(0, 0, 0, .3);
-      }
+    &:after {
+      background: rgba(0, 0, 0, .3);
+    }
   }
-
 
 
   .menu__item__button {
     @include breakpoint(desktop) {
-     visibility: hidden;
+      visibility: hidden;
       transition: visibility 100ms ease-in-out;
     }
   }
@@ -424,7 +412,6 @@ main {
   .menu__item__inner {
     height: 100%;
     position: relative;
-    z-index: 1;
     z-index: 1;
     display: flex;
     flex-direction: column;
@@ -454,10 +441,6 @@ main {
 }
 
 .section__menu__list {
-/*  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;*/
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 10px;
@@ -493,6 +476,7 @@ main {
 
   .swiper-button-prev, .swiper-button-next {
     --swiper-navigation-sides-offset: 10%;
+
     &:after {
       content: none;
     }
@@ -511,16 +495,16 @@ main {
   }
 
   .swiper-button-next {
-   &:before {
-     transform: rotate(180deg);
-   }
+    &:before {
+      transform: rotate(180deg);
+    }
   }
 }
 
 .section__gallery {
   padding-top: 50px;
   position: relative;
-  
+
   &:before {
     background: url('./assets/gallery-decor.png') no-repeat center;
     position: absolute;
@@ -536,7 +520,7 @@ main {
       content: '';
     }
   }
-  
+
 
   .section__body {
     @include breakpoint(desktop) {
@@ -571,7 +555,7 @@ main {
     left: 0;
     right: 0;
   }
-  
+
   a {
     overflow: hidden;
     width: 100%;
@@ -598,7 +582,6 @@ main {
   @include breakpoint(desktop) {
     font-size: 48px;
     line-height: 70px;
-    //margin-bottom: 25px;
   }
 }
 
@@ -612,13 +595,6 @@ main {
   margin: auto;
 }
 
-.swiper__gallery {
-  @include breakpoint(desktop) {
-    //max-width: 1245px;
-    //margin: auto;
-  }
-}
-
 .footer {
   background: #000;
   padding: 30px 0 30px;
@@ -627,10 +603,10 @@ main {
 .footer__logo {
   margin-bottom: 10px;
 
-    @include breakpoint(desktop) {
-      height: 100%;
-      border-right: 1px solid #393939;
-    }
+  @include breakpoint(desktop) {
+    height: 100%;
+    border-right: 1px solid #393939;
+  }
 }
 
 
@@ -752,10 +728,7 @@ main {
     align-items: center;
     height: 100%;
     margin: auto auto 0;
-
-
   }
-
 }
 
 .footer__email, .footer__address {
@@ -778,7 +751,6 @@ main {
     display: grid;
     grid-template-columns: auto auto 1fr;
     max-width: 1245px;
-
   }
 
   p:last-child {
@@ -790,14 +762,13 @@ main {
 }
 
 .footer__bottom__text {
-  //font-family: 'Montserrat';
   font-weight: 400;
   font-size: 10px;
   line-height: 12px;
   color: #E0E0E0;
 }
 
-.section__gallery{
+.section__gallery {
   overflow: hidden;
   padding-bottom: 50px;
 
@@ -811,10 +782,7 @@ main {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
     }
-
   }
-
-
 
   .swiper-pagination {
     display: block;
@@ -874,7 +842,6 @@ main {
   height: 100%;
 }
 
-
 [data-modal] {
   position: fixed;
   transform: translateY(-100%);
@@ -901,8 +868,6 @@ main {
 
 .modal-content {
   padding: 32px 0;
-
-
 }
 
 .modal__nav-menu {
@@ -923,7 +888,6 @@ main {
     }
   }
 }
-
 
 .modal-header__inner {
   display: flex;
@@ -956,9 +920,7 @@ main {
   }
 }
 
-
 [data-modal-menu] {
- // transform: translateX(-100%);
   transition: transform 2s ease-in-out;
   right: 0;
   width: 100%;
