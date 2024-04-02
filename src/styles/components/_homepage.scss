@@ -58,6 +58,7 @@ main {
   height: 100%;
   display: flex;
   align-items: center;
+  padding-top: 120px;
 
   @include breakpoint(desktop) {
     max-width: 1245px;
@@ -137,6 +138,14 @@ main {
 
 .header {
   padding: 10px 0;
+  position: fixed;
+  height: 78px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background: rgba(250, 0, 0, .7);
 
   .nav-menu {
     display: none;
@@ -845,6 +854,7 @@ main {
 #modal-menu {
   bottom: 0;
   height: 100%;
+  z-index: 3;
 }
 
 [data-modal] {
@@ -914,6 +924,10 @@ main {
     height: 33px;
     width: 2px;
     background-color: #fff;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 
   &:before {
@@ -936,4 +950,5 @@ main {
   border: none;
   outline: none;
   max-width: 100%;
+  position: fixed;
 }
