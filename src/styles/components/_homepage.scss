@@ -110,6 +110,12 @@ main {
       color: var(--color2);
     }
   }
+
+  .section__body {
+    @include breakpoint(desktop) {
+      text-align: left;
+    }
+  }
 }
 
 .section__body {
@@ -124,7 +130,6 @@ main {
 
   @include breakpoint(desktop) {
     display: inline-block;
-    text-align: left;
     margin-bottom: 35px;
   }
 
