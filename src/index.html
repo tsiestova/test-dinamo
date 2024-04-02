@@ -66,7 +66,7 @@
                           </div>
                       </div>
                          <div class="swiper-menu">
-                             <ul class="section__menu__list swiper-wrapper" id="my-gallery">
+                             <ul class="section__menu__list swiper-wrapper">
                                  <li class="swiper-slide section__menu__item">
                                      <figure>
                                          <img src="./assets/menu/1.jpg" alt="">
@@ -138,7 +138,7 @@
                          </div>
                       </div>
               </section>
-              <section class="section__gallery" id="gallery">
+              <section class="section__gallery">
                   <div class="layout">
                       <div class="section__gallery__inner">
                           <div class="section__gallery__heading">
@@ -149,44 +149,68 @@
                           </div>
                       </div>
                           <div class="swiper-gallery swiper__gallery">
-                            <ul class="swiper-wrapper section__gallery__list">
+                            <ul class="swiper-wrapper section__gallery__list" id="my-gallery">
                               <li class="swiper-slide section__gallery__item">
-                                  <a href="#">
-                                      <img src="./assets/menu/1.jpg" alt="">
-                                  </a>
+                                      <a href="./assets/menu/1.jpg"
+                                         data-pswp-width="355"
+                                         data-pswp-height="300"
+                                         target="_blank">
+                                          <img src="./assets/menu/1.jpg" alt="" />
+                                      </a>
                               </li>
                               <li class="swiper-slide section__gallery__item">
-                                  <a href="#">
+                                  <a href="./assets/menu/salad.jpg"
+                                     data-pswp-width="355"
+                                     data-pswp-height="300"
+                                     target="_blank">
                                       <img src="./assets/menu/salad.jpg" alt="">
                                   </a>
                               </li>
                               <li class="swiper-slide section__gallery__item">
-                                  <a href="#">
+                                  <a href="./assets/menu/vypechka.jpg"
+                                     data-pswp-width="355"
+                                     data-pswp-height="300"
+                                     target="_blank">
                                       <img src="./assets/menu/vypechka.jpg" alt="">
                                   </a>
                               </li>
                               <li class="swiper-slide section__gallery__item">
-                                  <a href="#">
+                                  <a href="./assets/menu/soup.jpg"
+                                     data-pswp-width="355"
+                                     data-pswp-height="300"
+                                     target="_blank">
                                       <img src="./assets/menu/soup.jpg" alt="">
                                   </a>
                               </li>
                               <li class="swiper-slide section__gallery__item">
-                                  <a href="#">
+                                  <a href="./assets/menu/mangal.jpg"
+                                     data-pswp-width="355"
+                                     data-pswp-height="300"
+                                     target="_blank">
                                       <img src="./assets/menu/mangal.jpg" alt="">
                                   </a>
                               </li>
                               <li class="swiper-slide section__gallery__item">
-                                  <a href="#">
+                                  <a href="./assets/menu/hot.jpg"
+                                     data-pswp-width="355"
+                                     data-pswp-height="300"
+                                     target="_blank">
                                       <img src="./assets/menu/hot.jpg" alt="">
                                   </a>
                               </li>
                               <li class="swiper-slide section__gallery__item">
-                                  <a href="#">
+                                  <a href="./assets/menu/souce.jpg"
+                                     data-pswp-width="355"
+                                     data-pswp-height="300"
+                                     target="_blank">
                                       <img src="./assets/menu/souce.jpg" alt="">
                                   </a>
                               </li>
                                 <li class="swiper-slide section__gallery__item">
-                                    <a href="#">
+                                    <a href="./assets/menu/1.jpg"
+                                       data-pswp-width="355"
+                                       data-pswp-height="300"
+                                       target="_blank">
                                         <img src="./assets/menu/1.jpg" alt="">
                                     </a>
                                 </li>
@@ -196,7 +220,6 @@
                       </div>
               </section>
           </div>
-
       <footer class="footer" id="contacts">
           <div class="layout">
               <div class="footer__inner">
@@ -249,7 +272,7 @@
      </div>
   </dialog>
 
-  <dialog data-modal id="modal-menu" class="modal__menu__list">
+  <dialog data-modal-menu id="modal-menu" class="modal__menu__list">
       <div class="layout">
           <button type="button" class="btn-close-menu" id="close-menu">
               Назад
@@ -262,5 +285,6 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script type="module" src="assets/lightbox.js"></script>
   </body>
 </html>

@@ -32,9 +32,22 @@ const initModalRecipes = () => {
             fetchData('./assets/modal.html')
                 .then(data => modalContent.innerHTML = data);
             modalMenu.showModal();
-
+            modalAnimate(modalMenu);
             addModalEvents(modalMenu);
         })
+    })
+}
+
+function modalAnimate (modal) {
+    modal.animate([
+        {
+            transform: "translateX(-100%)"
+        },
+        {
+            transform: "translateX(0)"
+        }
+    ], {
+        duration: 250
     })
 }
 
@@ -42,8 +55,20 @@ function addModalEvents(modal) {
 
     const closeMenu = document.querySelector('#close-menu');
     closeMenu.addEventListener('pointerdown', () => {
-        modal.close();
+       const animateMenu =  modal.animate([
+           {
+               transform: "translateX(0)"
+           },
+           {
+               transform: "translateX(-100%)"
+           }
+       ], {
+           duration: 250
+       })
+
+        animateMenu.onfinish = () =>  modal.close();
     });
+
 }
 
 const initGallerySlider = () => {
