@@ -21,9 +21,9 @@ const initModal = () => {
     });
 }
 
-function hideModal (modal) {
+function hideModal(modal) {
 
-   const animate = modal.animate([
+    const animate = modal.animate([
         {
             transform: "translateY(0)"
         },
@@ -39,7 +39,7 @@ function hideModal (modal) {
     animate.oncancel = () => modal.close();
 }
 
-function showModal (modal) {
+function showModal(modal) {
     modal.showModal();
 
     modal.animate([
@@ -72,7 +72,7 @@ const initModalRecipes = () => {
     })
 }
 
-function displayModalMenu (modal) {
+function displayModalMenu(modal) {
     modal.showModal();
 
     modal.animate(getAnimationAttr(), {
@@ -80,35 +80,35 @@ function displayModalMenu (modal) {
     });
 }
 
-function getAnimationAttr () {
+function getAnimationAttr() {
     const desktop = window.matchMedia("(min-width: 1024px)");
 
-        if(desktop.matches) {
-            return [
-                {
-                    opacity: 0
-                },
-                {
-                    opacity: 1
-                }
-            ]
-
-        }
-
-        return  [
+    if (desktop.matches) {
+        return [
             {
-                transform: "translateX(-100%)"
+                opacity: 0
             },
             {
-                transform: "translateX(0)"
+                opacity: 1
             }
         ]
+
+    }
+
+    return [
+        {
+            transform: "translateX(-100%)"
+        },
+        {
+            transform: "translateX(0)"
+        }
+    ]
 }
 
-function getAnimationCloseAttr () {
+function getAnimationCloseAttr() {
     const desktop = window.matchMedia("(min-width: 1024px)");
 
-    if(desktop.matches) {
+    if (desktop.matches) {
         return [
             {
                 opacity: 1
@@ -120,7 +120,7 @@ function getAnimationCloseAttr () {
 
     }
 
-    return  [
+    return [
         {
             transform: "translateX(0)"
         },
@@ -134,13 +134,13 @@ function addModalEvents(modal) {
     const closeMenu = document.querySelector('#close-menu');
     closeMenu.addEventListener('pointerdown', () => {
 
-       const animateMenu =  modal.animate(
-           getAnimationCloseAttr(),
-           {
-           duration: 250
-       })
+        const animateMenu = modal.animate(
+            getAnimationCloseAttr(),
+            {
+                duration: 250
+            })
 
-        animateMenu.onfinish = () =>  modal.close();
+        animateMenu.onfinish = () => modal.close();
     });
 
 }
@@ -265,7 +265,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     })
 
 
-    function setHeaderBg () {
+    function setHeaderBg() {
         const header = document.querySelector('.header');
 
         const observer = new IntersectionObserver((entries) => {
