@@ -11,14 +11,48 @@ const initModal = () => {
     const modal = document.querySelector('#modal');
 
     burger.addEventListener('pointerdown', () => {
-        modal.showModal();
+        showModal(modal);
     });
 
     const closeModal = document.querySelector('.btn-close-modal');
 
     closeModal.addEventListener('pointerdown', () => {
-        modal.close();
+        hideModal(modal);
     });
+}
+
+function hideModal (modal) {
+
+   const animate = modal.animate([
+        {
+            transform: "translateY(0)"
+        },
+        {
+            transform: "translateY(-100%)"
+        }
+
+    ], {
+        duration: 250
+    })
+
+    animate.onfinish = () => modal.close();
+    animate.oncancel = () => modal.close();
+}
+
+function showModal (modal) {
+    modal.showModal();
+
+    modal.animate([
+        {
+            transform: "translateY(-100%)"
+        },
+        {
+            transform: "translateY(0)"
+        }
+
+    ], {
+        duration: 250
+    })
 }
 
 const initModalRecipes = () => {
@@ -230,4 +264,19 @@ document.addEventListener("DOMContentLoaded", (event) => {
         })
     })
 
+
+    function setHeaderBg () {
+        const header = document.querySelector('.header');
+
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                header.classList.remove('header-dynamic');
+            } else {
+                header.classList.add('header-dynamic');
+            }
+        });
+        observer.observe(document.querySelector("#underheader-block"));
+    }
+
+    setHeaderBg();
 });
