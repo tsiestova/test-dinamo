@@ -1,15 +1,24 @@
-# 🚀 Welcome to your new awesome project!
 
-This project has been created using **webpack-cli**, you can now run
+#### Code injection Header:
+``<link
+rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>``
 
-```
-npm run build
-```
+#### Code injection Footer:
+```<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>```
 
-or
+#### Code Block
+``<div data-video-plugin data-blog-href="/video-plugin"></div>``
 
-```
-yarn build
-```
+#### Set Blog href
+``/video-plugin``
 
-to bundle your application
+
+#### JS: set href, sectionId, homepageId
+- [JS ](src/index.js)
+
+#### Less: set sectionId, homepageId
+- [Styles](src/style.less)
+
+

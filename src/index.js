@@ -68,6 +68,7 @@ const initModalRecipes = () => {
 
             displayModalMenu(modalMenu);
             addModalEvents(modalMenu);
+
         })
     })
 }
